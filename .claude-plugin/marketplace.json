@@ -1,0 +1,16 @@
+{
+  "name": "skills",
+  "owner": {
+    "name": "Chaitanya Soni"
+  },
+  "plugins": [
+    {
+      "name": "project-mgmt",
+      "source": "./skills/project-mgmt",
+      "description": "Manages project artifacts in .agents/ — requirements, specs, plans, and documents — with full lifecycle support, cross-linking, and ingest of existing docs.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "strict": false
+    }
+  ]
+}

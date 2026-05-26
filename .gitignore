@@ -1,0 +1,5 @@
+.DS_Store
+
+# Local eval iterations and artifacts — not part of distributed skills
+project-mgmt-workspace/
+*.zip

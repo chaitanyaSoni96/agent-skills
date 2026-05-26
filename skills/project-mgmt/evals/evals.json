@@ -1,0 +1,102 @@
+{
+  "skill_name": "project-mgmt",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This project already has a bunch of docs. Ingest everything into the .agents/ system so we have a proper project management setup.",
+      "expected_output": "Scans project docs, classifies them, creates artifacts with frontmatter (including source: field) preserving original content unmodified, derives statuses, cross-links, populates INDEX.md.",
+      "assertions": [
+        {"id": "multi-directory", "text": "Artifacts in at least 2 .agents/ subdirectories"},
+        {"id": "frontmatter-present", "text": "All artifacts have YAML frontmatter with title, status, created"},
+        {"id": "source-field", "text": "Ingested artifacts have source: field pointing to originals"},
+        {"id": "status-derived", "text": "MVP plan artifacts marked completed"},
+        {"id": "architecture-as-spec", "text": "Architecture doc represented in spec/"},
+        {"id": "cross-links", "text": "Some artifacts have links: to other .agents/ artifacts"},
+        {"id": "index-populated", "text": "INDEX.md has entries for all artifacts grouped by directory"},
+        {"id": "kebab-case", "text": "All files/folders use kebab-case"}
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need to track a new feature idea — we want to add notification preferences so users can control which alerts they get (push, email, in-app). Create a requirement for it.",
+      "expected_output": "Creates requirements/notification-preferences/ folder with requirement.md containing correct frontmatter (title, status: draft, created date, empty links), content sections (Problem, User Impact, Success Criteria), and updates INDEX.md with an entry under Requirements.",
+      "assertions": [
+        {"id": "folder-structure", "text": "Created requirements/notification-preferences/ as a folder"},
+        {"id": "requirement-md-exists", "text": "requirement.md exists inside the requirement folder"},
+        {"id": "valid-frontmatter", "text": "requirement.md has YAML frontmatter with title, status, created, links"},
+        {"id": "status-draft", "text": "Frontmatter status is 'draft'"},
+        {"id": "content-sections", "text": "Content has Problem, User Impact, Success Criteria sections"},
+        {"id": "index-updated", "text": "INDEX.md has entry for notification-preferences under Requirements"},
+        {"id": "kebab-case-naming", "text": "Folder name uses kebab-case"}
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The notification preferences requirement looks good, let's write the PRD for it. Users should be able to toggle push, email, and in-app notifications independently per event type (new message, transaction update, review received). Include a quiet hours setting.",
+      "expected_output": "Adds prd.md to existing requirements/notification-preferences/ folder with correct frontmatter (status: draft), comprehensive product requirements covering the toggle and quiet hours features. Updates INDEX.md.",
+      "assertions": [
+        {"id": "prd-exists", "text": "prd.md exists inside requirements/notification-preferences/"},
+        {"id": "prd-frontmatter", "text": "prd.md has YAML frontmatter with title, status, created, links"},
+        {"id": "prd-status-draft", "text": "prd.md status is 'draft'"},
+        {"id": "prd-content-scope", "text": "PRD has scope, user stories, acceptance criteria sections"},
+        {"id": "per-event-toggles", "text": "PRD covers per-event-type toggles (message, transaction, review)"},
+        {"id": "quiet-hours", "text": "PRD includes quiet hours feature"},
+        {"id": "requirement-unchanged", "text": "Original requirement.md not modified"},
+        {"id": "index-updated", "text": "INDEX.md reflects PRD addition"}
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Now write the SOW for notification preferences. We're targeting a 3-week timeline. The backend work is estimated at 40 hours and the mobile work at 30 hours. Budget is $15k. The constraint is we need to ship before the next app store release window on June 15th.",
+      "expected_output": "Adds sow.md to existing requirements/notification-preferences/ folder with correct frontmatter (status: draft), content covering deliverables, timeline, cost, and constraints. References the June 15th deadline and budget figures. Updates INDEX.md.",
+      "assertions": [
+        {"id": "sow-exists", "text": "sow.md exists inside requirements/notification-preferences/"},
+        {"id": "sow-frontmatter", "text": "sow.md has YAML frontmatter with title, status, created, links"},
+        {"id": "sow-status-draft", "text": "sow.md status is 'draft'"},
+        {"id": "sow-deliverables", "text": "SOW includes deliverables section"},
+        {"id": "sow-timeline", "text": "SOW includes timeline with 3-week duration"},
+        {"id": "sow-cost", "text": "SOW includes cost/budget referencing $15k"},
+        {"id": "sow-constraints", "text": "SOW mentions June 15th app store deadline constraint"},
+        {"id": "sow-hours", "text": "SOW references 40h backend and 30h mobile estimates"},
+        {"id": "existing-files-unchanged", "text": "requirement.md and prd.md not modified"},
+        {"id": "index-updated", "text": "INDEX.md reflects SOW addition"}
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "The notification preferences SOW is accepted. Create a plan for it — break it into backend and mobile workstreams. Backend needs to handle preferences storage, API endpoints, and notification filtering. Mobile needs the settings screen, toggle UI, and quiet hours picker.",
+      "expected_output": "Creates plans/todo/notification-preferences/ folder with plan file containing correct frontmatter (status: todo, links back to requirement and spec if exists), task breakdown with backend and mobile workstreams using ☐ markers. Updates INDEX.md.",
+      "assertions": [
+        {"id": "plan-folder", "text": "Plan folder exists at plans/todo/notification-preferences/"},
+        {"id": "plan-file-exists", "text": "Plan .md file exists inside the folder"},
+        {"id": "plan-frontmatter", "text": "Plan has YAML frontmatter with title, status, created, links"},
+        {"id": "plan-status-todo", "text": "Frontmatter status is 'todo'"},
+        {"id": "plan-links-requirement", "text": "Links field references requirements/notification-preferences/"},
+        {"id": "backend-workstream", "text": "Task breakdown includes backend tasks (storage, API, filtering)"},
+        {"id": "mobile-workstream", "text": "Task breakdown includes mobile tasks (settings screen, toggles, quiet hours)"},
+        {"id": "task-markers", "text": "Tasks use ☐ markers"},
+        {"id": "index-updated", "text": "INDEX.md has entry for the plan under Plans as todo"}
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "We have a spec and plan ready for the search upgrade. The plan is in-progress and we've been tracking work in the tracker. The search is done now — complete the plan.",
+      "expected_output": "Prepends tracker to plan file under Execution Log, deletes tracker, sets status completed, moves folder to plans/completed/, updates INDEX.md.",
+      "assertions": [
+        {"id": "folder-moved", "text": "Plan folder at plans/completed/search-v2/"},
+        {"id": "old-location-gone", "text": "plans/in-progress/search-v2/ no longer exists"},
+        {"id": "tracker-deleted", "text": "No tracker file in plans/completed/search-v2/"},
+        {"id": "tracker-prepended", "text": "Plan file has tracker content under Execution Log heading"},
+        {"id": "status-completed", "text": "Frontmatter status is 'completed'"},
+        {"id": "index-updated", "text": "INDEX.md shows completed with new path"},
+        {"id": "original-content-preserved", "text": "Original plan content still present"}
+      ],
+      "files": []
+    }
+  ]
+}
