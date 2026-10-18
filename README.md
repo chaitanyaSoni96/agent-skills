@@ -7,6 +7,7 @@ A collection of [Agent Skills](https://www.agensi.io/learn/skill-md-specificatio
 | Skill | Description |
 |---|---|
 | [project-mgmt](skills/project-mgmt/) | Manages project artifacts in `.agents/` — requirements, specs, plans, and documents. Full lifecycle support with cross-linking and ingest of existing docs. |
+| [make-conventions](skills/make-conventions/) | Generates, audits and simplifies Makefiles to one self-documenting, stack-agnostic surface (`dev`/`build`/`lint`/`test`/`fmt`, grouped generated help). Detects Go, Node/Next/Nest/Expo/Tauri, Python/uv, Rust, Swift, JVM, compose and codegen; includes a stack detector and a Makefile linter. |
 
 ## Installation
 

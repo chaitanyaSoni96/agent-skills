@@ -7,7 +7,23 @@
     {
       "name": "project-mgmt",
       "source": "./skills/project-mgmt",
-      "description": "Manages project artifacts in .agents/ — requirements, specs, plans, and documents — with full lifecycle support, cross-linking, and ingest of existing docs.",
+      "description": "Manages project artifacts in .agents/ \u2014 requirements, specs, plans, and documents \u2014 with full lifecycle support, cross-linking, and ingest of existing docs.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "strict": false
+    },
+    {
+      "name": "vps-deploy",
+      "source": "./skills/vps-deploy",
+      "description": "Set up and operate self-hosted deployments on a VPS: rootless podman, Quadlet units, GHCR, build-once release/promote, podman auto-update.",
+      "version": "0.1.0",
+      "category": "devops",
+      "strict": false
+    },
+    {
+      "name": "make-conventions",
+      "source": "./skills/make-conventions",
+      "description": "Generate, audit and simplify Makefiles into one self-documenting, stack-agnostic surface with grouped generated help, plus a stack detector and Makefile linter.",
       "version": "0.1.0",
       "category": "productivity",
       "strict": false
