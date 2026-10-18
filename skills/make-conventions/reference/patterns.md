@@ -180,8 +180,9 @@ promote: ## Point an environment at a released version (interactive; VERSION= op
 	IMAGE=$(IMAGE) VERSION=$(VERSION) ./deploy/promote.sh
 ```
 
-If the project follows the `vps-deploy` skill, these two targets are all Make
-exposes.
+If the project follows the `vps-deploy` skill, these two targets are the minimum
+Make exposes; it may add `migrate`, `roll` or `sync` depending on its deploy
+choices.
 
 ## Platform branching
 

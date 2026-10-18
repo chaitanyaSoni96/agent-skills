@@ -117,7 +117,7 @@ section "Config / deploy"
 have .env.example .env.sample && { echo "env template:"; list .env.example .env.sample; }
 [ -f .env ] && echo ".env present (git-ignored? $(git check-ignore -q .env 2>/dev/null && echo yes || echo NO))"
 [ -d deploy ] && echo "deploy/: yes"
-have '.vps-deploy.json' && echo "vps-deploy: yes (use the vps-deploy skill; Make exposes release/promote only)"
+[ -d deploy/quadlet ] && echo "vps-deploy: yes (see the vps-deploy skill; Make exposes release/promote and the project's own deploy targets)"
 have wrangler.toml fly.toml vercel.json netlify.toml && { echo "platform config:"; list wrangler.toml fly.toml vercel.json netlify.toml; }
 [ -d .github/workflows ] && echo "CI: github actions" || echo "CI: none detected"
 

@@ -15,8 +15,8 @@
     {
       "name": "vps-deploy",
       "source": "./skills/vps-deploy",
-      "description": "Set up and operate self-hosted deployments on a VPS: rootless podman, Quadlet units, GHCR, build-once release/promote, podman auto-update.",
-      "version": "0.1.0",
+      "description": "General guidance for self-hosted deployments on a VPS: rootless podman, Quadlet units, GHCR, build-once release/promote, podman auto-update, and the choices projects make within that pattern.",
+      "version": "0.2.0",
       "category": "devops",
       "strict": false
     },
