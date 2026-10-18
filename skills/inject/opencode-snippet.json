@@ -1,0 +1,8 @@
+{
+  "command": {
+    "inject": {
+      "description": "Dump the entire human-readable codebase as a JSON blob. Default: raw cat. Optional: /inject rtk for RTK minimization. Respects .gitignore. Outputs to /tmp/inject/.",
+      "template": "Check if the user wants RTK mode (e.g. /inject rtk). If so, run `bash ~/skills/skills/inject/scripts/injector.sh -r`. Otherwise run `bash ~/skills/skills/inject/scripts/injector.sh`. If the RTK command fails with exit code 2, tell the user to run: curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh. Read the generated JSON file from /tmp/inject/. Present the metadata (files processed, token savings if RTK) and a preview of the first few entries. Ask the user if they want the full output saved elsewhere."
+    }
+  }
+}
