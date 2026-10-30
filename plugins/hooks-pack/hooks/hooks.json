@@ -1,0 +1,4 @@
+{
+  "description": "Hook definitions shipped by this repo. Empty by default — add entries under \"hooks\" keyed by event name (PreToolUse, PostToolUse, UserPromptSubmit, Stop, SubagentStop, Notification, etc.). Use ${CLAUDE_PLUGIN_ROOT} or an absolute path for command scripts.",
+  "hooks": {}
+}

@@ -1,5 +1,5 @@
 {
-  "name": "skills",
+  "name": "agent-skills",
   "owner": {
     "name": "Chaitanya Soni"
   },
@@ -7,7 +7,7 @@
     {
       "name": "project-mgmt",
       "source": "./skills/project-mgmt",
-      "description": "Manages project artifacts in .agents/ \u2014 requirements, specs, plans, and documents \u2014 with full lifecycle support, cross-linking, and ingest of existing docs.",
+      "description": "Manages project artifacts in .agents/ — requirements, specs, plans, and documents — with full lifecycle support, cross-linking, and ingest of existing docs.",
       "version": "0.1.0",
       "category": "productivity",
       "strict": false
@@ -26,6 +26,38 @@
       "description": "Generate, audit and simplify Makefiles into one self-documenting, stack-agnostic surface with grouped generated help, plus a stack detector and Makefile linter.",
       "version": "0.1.0",
       "category": "productivity",
+      "strict": false
+    },
+    {
+      "name": "git-workflow",
+      "source": "./plugins/git-workflow",
+      "description": "Disciplined git workflow: atomic commits, Conventional Commits, line-level partial staging, branching, PRs, and history hygiene. Ships the git-workflow skill plus /commit, /branch, /pr, /amend, /cleanup, and /split commands.",
+      "version": "0.1.0",
+      "category": "version-control",
+      "strict": false
+    },
+    {
+      "name": "agents-pack",
+      "source": "./plugins/agents-pack",
+      "description": "Reusable subagents. Currently a template; add task-specific agents here.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "strict": false
+    },
+    {
+      "name": "hooks-pack",
+      "source": "./plugins/hooks-pack",
+      "description": "Event hooks (PreToolUse, PostToolUse, Stop, etc.). Scaffold — add hook definitions to hooks/hooks.json.",
+      "version": "0.1.0",
+      "category": "automation",
+      "strict": false
+    },
+    {
+      "name": "mcp-pack",
+      "source": "./plugins/mcp-pack",
+      "description": "MCP server declarations. Scaffold — add servers to .mcp.json.",
+      "version": "0.1.0",
+      "category": "integrations",
       "strict": false
     }
   ]
