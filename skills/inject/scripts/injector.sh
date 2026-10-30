@@ -36,8 +36,16 @@ check_workspace() {
 }
 
 # Create output directory
+# The dump holds the whole codebase (possibly secrets), so the directory must be
+# ours alone: owner-only, not a symlink, and files created inside it are 0600.
 setup_output_dir() {
-    mkdir -p /tmp/inject
+    umask 077
+    mkdir -p -m 700 /tmp/inject
+    if [ -L /tmp/inject ] || [ ! -O /tmp/inject ]; then
+        echo "Refusing to use /tmp/inject: not a directory owned by you" >&2
+        exit 1
+    fi
+    chmod 700 /tmp/inject
 }
 
 # Check if a file should be excluded by denylist
